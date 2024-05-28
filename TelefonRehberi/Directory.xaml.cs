@@ -1,15 +1,16 @@
 
-
 namespace TelefonRehberi;
-using Microsoft.Maui.Controls;
-using TelefonRehberi.Models;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Microsoft.Maui.Controls;
 using TelefonRehberi.Data;
+using TelefonRehberi.Models;
 
 
 public partial class Directory : ContentPage
 {
-    private ObservableCollection<Contact> contacts;
+    public ObservableCollection<Contact> Contacts { get; set; }
+    public ICommand DeleteCommand { get; }
     private ContactDatabase _contactDatabase;
 
     public Directory()
@@ -17,19 +18,35 @@ public partial class Directory : ContentPage
         InitializeComponent();
         _contactDatabase = new ContactDatabase();
 
-        contacts = new ObservableCollection<Contact>();
-        contactsCollectionView.ItemsSource = contacts;
+        Contacts = new ObservableCollection<Contact>();
+        contactsCollectionView.ItemsSource = Contacts;
 
+        DeleteCommand = new Command<Contact>(async (contact) => await OnDelete(contact));
+
+        BindingContext = this;
+    }
+
+    private async Task OnDelete(Contact contact)
+    {
+        bool confirm = await DisplayAlert("Onay", contact.Name + " adlý kiþiyi silmek istediðinizden emin misiniz?", "Evet", "Hayýr");
+        if (confirm)
+        {
+            if (Contacts.Contains(contact))
+            {
+                Contacts.Remove(contact);
+                await _contactDatabase.DeleteContactAsync(contact);
+            }
+        }
     }
 
     protected override async void OnAppearing()
     {
         base.OnAppearing();
         var contactList = await _contactDatabase.GetContactsAsync();
-        contacts.Clear();
+        Contacts.Clear();
         foreach (var contact in contactList)
         {
-            contacts.Add(contact);
+            Contacts.Add(contact);
         }
     }
 }

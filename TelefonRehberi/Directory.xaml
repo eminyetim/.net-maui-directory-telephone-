@@ -3,25 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TelefonRehberi.Directory"
              Title="Directory">
-    <ContentPage.Content>
-        <StackLayout Padding="10">
-            <Label Text="Telefon Rehberi" FontSize="24" HorizontalOptions="Center" Margin="0,10,0,20" />
-            <CollectionView x:Name="contactsCollectionView">
-                <CollectionView.Header>
-                    <StackLayout Orientation="Horizontal" Padding="10">
-                        <Label Text="İsim" FontSize="18" FontAttributes="Bold" />
-                        <Label Text="Numara" FontSize="18" HorizontalOptions="EndAndExpand" FontAttributes="Bold" />
-                    </StackLayout>
-                </CollectionView.Header>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout Orientation="Horizontal" Padding="10">
-                            <Label Text="{Binding Name}" FontSize="16" />
-                            <Label Text="{Binding PhoneNumber}" FontSize="16" HorizontalOptions="EndAndExpand" />
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <VerticalStackLayout>
+        <Label Text="Rehber" 
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"/>
+
+        <CollectionView x:Name="contactsCollectionView"
+                        ItemsSource="{Binding Contacts}"
+                        SelectionMode="None">
+            <CollectionView.Header>
+                <Grid Padding="10" BackgroundColor="#E0E0E0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="İsim" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" />
+                    <Label Text="Telefon Numarası" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="1"/>
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Sil" 
+                                           BackgroundColor="Red" 
+                                           Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference contactsCollectionView}}"
+                                           CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid Padding="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Name}" FontSize="20" VerticalOptions="Center" />
+                            <Label Text="{Binding PhoneNumber}" FontSize="20" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="1"/>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
 </ContentPage>
