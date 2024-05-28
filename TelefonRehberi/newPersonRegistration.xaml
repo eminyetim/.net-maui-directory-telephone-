@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TelefonRehberi.newPersonRegistration"
+             Title="Yeni Kişi Ekle"
+             BackgroundColor="White">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20" Spacing="20">
+                <!-- İsim -->
+                <Label Text="İsim" FontSize="18" />
+                <Entry x:Name="nameEntry" Placeholder="İsim girin" FontSize="16" />
+
+                <!-- Telefon Numarası -->
+                <Label Text="Telefon Numarası" FontSize="18" />
+                <Entry x:Name="phoneEntry" Placeholder="Telefon numarası girin" Keyboard="Telephone" FontSize="16" />
+
+                <!-- Kaydet Butonu -->
+                <Button Text="Kaydet" Clicked="OnSaveButtonClicked" FontSize="18" BackgroundColor="#007bff" TextColor="White" CornerRadius="5" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TelefonRehberi.Directory"
+             Title="Directory">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Telefon Rehberi" FontSize="24" HorizontalOptions="Center" Margin="0,10,0,20" />
+            <CollectionView x:Name="contactsCollectionView">
+                <CollectionView.Header>
+                    <StackLayout Orientation="Horizontal" Padding="10">
+                        <Label Text="İsim" FontSize="18" FontAttributes="Bold" />
+                        <Label Text="Numara" FontSize="18" HorizontalOptions="EndAndExpand" FontAttributes="Bold" />
+                    </StackLayout>
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Name}" FontSize="16" />
+                            <Label Text="{Binding PhoneNumber}" FontSize="16" HorizontalOptions="EndAndExpand" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
