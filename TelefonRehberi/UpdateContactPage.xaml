@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TelefonRehberi.UpdateContactPage"
+             Title="UpdateContactPage">
+    <VerticalStackLayout>
+        <VerticalStackLayout Padding="20">
+            <Entry x:Name="idEntry" Placeholder="ID" IsEnabled="False"/>
+            <Entry x:Name="nameEntry" Placeholder="Name"/>
+            <Entry x:Name="phoneEntry" Placeholder="Phone Number"/>
+            <Button Text="Update" Clicked="OnUpdateButtonClicked"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

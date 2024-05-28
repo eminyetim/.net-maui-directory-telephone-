@@ -49,4 +49,14 @@ public partial class Directory : ContentPage
             Contacts.Add(contact);
         }
     }
+
+    private async void OnUpdateButtonClicked(object sender, EventArgs e)
+    {
+        var button = sender as Button;
+        var contact = button?.BindingContext as Contact;
+        if (contact != null)
+        {
+            await Navigation.PushAsync(new UpdateContactPage(contact));
+        }
+    }
 }

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TelefonRehberi.Directory"
              Title="Directory">
-    
+
     <VerticalStackLayout>
         <Label Text="Rehber" 
                FontSize="24"
@@ -19,9 +19,11 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <Label Text="İsim" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" />
                     <Label Text="Telefon Numarası" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="1"/>
+                    <!--<Label Text="Actions" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="2"/>-->
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
@@ -39,9 +41,11 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Name}" FontSize="20" VerticalOptions="Center" />
                             <Label Text="{Binding PhoneNumber}" FontSize="20" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="1"/>
+                            <Button Text="Güncelle" Clicked="OnUpdateButtonClicked" CommandParameter="{Binding .}" Grid.Column="2"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>
