@@ -2,22 +2,31 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TelefonRehberi.Directory"
-             Title="Directory">
+             Title="">
 
-    <VerticalStackLayout>
+
+    <VerticalStackLayout Padding="20" Spacing="10">
         <Label Text="Rehber" 
-               FontSize="24"
+               FontSize="30"
                FontAttributes="Bold"
                HorizontalOptions="Center"
-               VerticalOptions="Start"/>
+               VerticalOptions="Start"
+               TextColor="#333333"/>
 
         <SearchBar x:Name="searchBar" 
                    Placeholder="Kişi ara..." 
-                   TextChanged="OnSearchBarTextChanged" />
+                   TextChanged="OnSearchBarTextChanged"
+                   BackgroundColor="#FFFFFF"
+                   TextColor="#333333"
+                   PlaceholderColor="#888888"
+                   FontSize="18"
+                   Margin="0,10"/>
 
         <CollectionView x:Name="contactsCollectionView"
                         ItemsSource="{Binding FilteredContacts}"
-                        SelectionMode="None">
+                        SelectionMode="None"
+                        BackgroundColor="#FFFFFF"
+                        Margin="0,10">
             <CollectionView.Header>
                 <Grid Padding="10" BackgroundColor="#E0E0E0">
                     <Grid.ColumnDefinitions>
@@ -25,8 +34,8 @@
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Label Text="İsim" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" />
-                    <Label Text="Telefon Numarası" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="1"/>
+                    <Label Text="İsim" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" TextColor="#333333"/>
+                    <Label Text="Telefon Numarası" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="1" TextColor="#333333"/>
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
@@ -40,14 +49,14 @@
                                            CommandParameter="{Binding .}" />
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <Grid Padding="10">
+                        <Grid Padding="10" BackgroundColor="#FFFFFF">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Name}" FontSize="20" VerticalOptions="Center" />
-                            <Label Text="{Binding PhoneNumber}" FontSize="20" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Margin="0,0,5,0"/>
+                            <Label Text="{Binding Name}" FontSize="18" VerticalOptions="Center" TextColor="#333333"/>
+                            <Label Text="{Binding PhoneNumber}" FontSize="18" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Margin="0,0,5,0" TextColor="#666666"/>
                             <ImageButton Source="edit.png" 
                              WidthRequest="24" 
                              HeightRequest="24" 
@@ -55,8 +64,8 @@
                              HorizontalOptions="End" 
                              Clicked="OnUpdateButtonClicked" 
                              CommandParameter="{Binding .}" 
-                             Grid.Column="2"/>
-                            <ImageButton Source="edit.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="End" Clicked="OnUpdateButtonClicked" CommandParameter="{Binding .}" Grid.Column="2"/>
+                             Grid.Column="2"
+                             BackgroundColor="Transparent"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>

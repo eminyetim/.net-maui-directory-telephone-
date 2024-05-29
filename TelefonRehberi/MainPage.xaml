@@ -12,19 +12,22 @@
              Source="telephone.png"
              HeightRequest="185"
              Aspect="AspectFit"
-             SemanticProperties.Description="dot net bot in a race car number eight" />         
+             SemanticProperties.Description="dot net bot in a race car number eight" />
 
             <Button
-                x:Name="Rehber"
-                Text="Rehber" 
-                Clicked="OpenDirectoryPage"
-                 />
-
+                x:Name="Rehber" Text="Rehber" 
+                TextColor="White" BackgroundColor="#007BFF"
+                CornerRadius="20" FontSize="20"
+                Padding="15" Clicked="OpenDirectoryPage"
+                HorizontalOptions="FillAndExpand"/>
+            
             <Button
-                x:Name="YeniKayit"
-                Text="Yeni Kayıt" 
-                Clicked="OpenNewPersonRegistrtionPage"
-                         />
+                x:Name="YeniKayit" Text="Yeni Kayıt"
+                TextColor="White" BackgroundColor="#28A745"
+                CornerRadius="20" FontSize="20"
+                Padding="15" Clicked="OpenNewPersonRegistrtionPage"
+                HorizontalOptions="FillAndExpand"/> 
+            
         </VerticalStackLayout>
     </ScrollView>
 

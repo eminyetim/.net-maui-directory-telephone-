@@ -24,7 +24,7 @@ public partial class UpdateContactPage : ContentPage
         _contact.PhoneNumber = phoneEntry.Text;
 
         await _contactDatabase.SaveContactAsync(_contact);
-        await DisplayAlert("Success", "Contact updated successfully.", "OK");
+        await DisplayAlert("Success","Güncelleme iþlemi baþarýlý.", "OK");
         await Navigation.PopAsync();
     }
 }
