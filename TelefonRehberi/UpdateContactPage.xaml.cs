@@ -20,9 +20,15 @@ public partial class UpdateContactPage : ContentPage
 
     private async void OnUpdateButtonClicked(object sender, EventArgs e)
     {
+        
         _contact.Name = nameEntry.Text;
         _contact.PhoneNumber = phoneEntry.Text;
 
+        if (_contact.PhoneNumber.Length != 11)
+        {
+            await DisplayAlert("Hata", "Lütfen 11 haneli telefon numarasý giriniz", "Tamam");
+            return;
+        }
         await _contactDatabase.SaveContactAsync(_contact);
         await DisplayAlert("Success","Güncelleme iþlemi baþarýlý.", "OK");
         await Navigation.PopAsync();

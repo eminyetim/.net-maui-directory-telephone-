@@ -24,6 +24,11 @@ public partial class newPersonRegistration : ContentPage
             await DisplayAlert("Hata", "Lütfen tüm alanlarý doldurun", "Tamam");
             return;
         }
+        if (phoneNumber.Length != 11)
+        {
+            await DisplayAlert("Hata", "Lütfen 11 haneli telefon numarasý giriniz", "Tamam");
+            return;
+        }
 
         var newContact = new Contact
         {
