@@ -14,9 +14,6 @@
              Aspect="AspectFit"
              SemanticProperties.Description="dot net bot in a race car number eight" />         
 
-
-
-
             <Button
                 x:Name="Rehber"
                 Text="Rehber" 

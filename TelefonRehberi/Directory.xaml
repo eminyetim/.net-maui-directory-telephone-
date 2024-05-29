@@ -11,8 +11,12 @@
                HorizontalOptions="Center"
                VerticalOptions="Start"/>
 
+        <SearchBar x:Name="searchBar" 
+                   Placeholder="Kişi ara..." 
+                   TextChanged="OnSearchBarTextChanged" />
+
         <CollectionView x:Name="contactsCollectionView"
-                        ItemsSource="{Binding Contacts}"
+                        ItemsSource="{Binding FilteredContacts}"
                         SelectionMode="None">
             <CollectionView.Header>
                 <Grid Padding="10" BackgroundColor="#E0E0E0">
@@ -23,7 +27,6 @@
                     </Grid.ColumnDefinitions>
                     <Label Text="İsim" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" />
                     <Label Text="Telefon Numarası" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="1"/>
-                    <!--<Label Text="Actions" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="2"/>-->
                 </Grid>
             </CollectionView.Header>
             <CollectionView.ItemTemplate>
@@ -44,8 +47,16 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Name}" FontSize="20" VerticalOptions="Center" />
-                            <Label Text="{Binding PhoneNumber}" FontSize="20" VerticalOptions="Center" HorizontalOptions="EndAndExpand" Grid.Column="1"/>
-                            <Button Text="Güncelle" Clicked="OnUpdateButtonClicked" CommandParameter="{Binding .}" Grid.Column="2"/>
+                            <Label Text="{Binding PhoneNumber}" FontSize="20" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Margin="0,0,5,0"/>
+                            <ImageButton Source="edit.png" 
+                             WidthRequest="24" 
+                             HeightRequest="24" 
+                             VerticalOptions="Center" 
+                             HorizontalOptions="End" 
+                             Clicked="OnUpdateButtonClicked" 
+                             CommandParameter="{Binding .}" 
+                             Grid.Column="2"/>
+                            <ImageButton Source="edit.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" HorizontalOptions="End" Clicked="OnUpdateButtonClicked" CommandParameter="{Binding .}" Grid.Column="2"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>

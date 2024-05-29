@@ -57,6 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\edit.png" />
 	  <None Remove="Resources\Images\telephone.png" />
 	</ItemGroup>
 
