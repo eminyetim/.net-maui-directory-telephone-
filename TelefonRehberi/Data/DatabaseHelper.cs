@@ -1,7 +1,7 @@
 ﻿
 using SQLite;
 
-namespace TelefonRehberi.Helpers
+namespace TelefonRehberi.Data
 {
     public static class DatabaseHelper
     {

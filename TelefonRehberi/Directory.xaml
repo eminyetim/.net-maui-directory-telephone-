@@ -6,27 +6,14 @@
 
 
     <VerticalStackLayout Padding="20" Spacing="10">
-        <Label Text="Rehber" 
-               FontSize="30"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"
-               VerticalOptions="Start"
+        <Label Text="Rehber" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start"
                TextColor="#333333"/>
 
-        <SearchBar x:Name="searchBar" 
-                   Placeholder="Kişi ara..." 
-                   TextChanged="OnSearchBarTextChanged"
-                   BackgroundColor="#FFFFFF"
-                   TextColor="#333333"
-                   PlaceholderColor="#888888"
-                   FontSize="18"
-                   Margin="0,10"/>
+        <SearchBar x:Name="searchBar" Placeholder="Kişi ara..." TextChanged="OnSearchBarTextChanged" BackgroundColor="#FFFFFF" TextColor="#333333" PlaceholderColor="#888888"
+                   FontSize="18" Margin="0,10"/>
 
-        <CollectionView x:Name="contactsCollectionView"
-                        ItemsSource="{Binding FilteredContacts}"
-                        SelectionMode="None"
-                        BackgroundColor="#FFFFFF"
-                        Margin="0,10">
+        <CollectionView x:Name="contactsCollectionView" ItemsSource="{Binding FilteredContacts}" SelectionMode="None" BackgroundColor="#FFFFFF" Margin="0,10">
+
             <CollectionView.Header>
                 <Grid Padding="10" BackgroundColor="#E0E0E0">
                     <Grid.ColumnDefinitions>
@@ -43,9 +30,7 @@
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
-                                <SwipeItem Text="Sil" 
-                                           BackgroundColor="Red" 
-                                           Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference contactsCollectionView}}"
+                                <SwipeItem Text="Sil"  BackgroundColor="Red"  Command="{Binding Path=BindingContext.DeleteCommand, Source={x:Reference contactsCollectionView}}" 
                                            CommandParameter="{Binding .}" />
                             </SwipeItems>
                         </SwipeView.RightItems>
@@ -57,15 +42,8 @@
                             </Grid.ColumnDefinitions>
                             <Label Text="{Binding Name}" FontSize="18" VerticalOptions="Center" TextColor="#333333"/>
                             <Label Text="{Binding PhoneNumber}" FontSize="18" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Margin="0,0,5,0" TextColor="#666666"/>
-                            <ImageButton Source="edit.png" 
-                             WidthRequest="24" 
-                             HeightRequest="24" 
-                             VerticalOptions="Center" 
-                             HorizontalOptions="End" 
-                             Clicked="OnUpdateButtonClicked" 
-                             CommandParameter="{Binding .}" 
-                             Grid.Column="2"
-                             BackgroundColor="Transparent"/>
+                            <ImageButton Source="edit.png" WidthRequest="24"  HeightRequest="24" VerticalOptions="Center" HorizontalOptions="End" 
+                                         Clicked="OnUpdateButtonClicked" CommandParameter="{Binding .}" Grid.Column="2" BackgroundColor="Transparent"/>
                         </Grid>
                     </SwipeView>
                 </DataTemplate>

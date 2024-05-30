@@ -2,25 +2,24 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TelefonRehberi.UpdateContactPage"
-             Title="Update Contact"
-             BackgroundColor="#F5F5F5">
-             
+             Title="Update Contact" BackgroundColor="#F5F5F5">
+    
     <ContentPage.Content>
         <VerticalStackLayout Padding="20" Spacing="15">
             <Frame CornerRadius="10" BackgroundColor="White" Padding="15" Margin="0,20">
                 <VerticalStackLayout Spacing="20">
-                    <Entry x:Name="idEntry" Placeholder="ID" IsEnabled="False" IsVisible="false" BackgroundColor="#EFEFEF" TextColor="#333333"/>
-                    <Entry x:Name="nameEntry" Placeholder="İsim" BackgroundColor="#FFFFFF" TextColor="#333333"/>
-                    <Entry x:Name="phoneEntry" Placeholder="Telefon Numarası" BackgroundColor="#FFFFFF" TextColor="#333333"/>
+                    <Entry x:Name="idEntry" Placeholder="ID" IsEnabled="False" IsVisible="false" 
+                           BackgroundColor="#EFEFEF" TextColor="#333333"/>
+                    <Entry x:Name="nameEntry" Placeholder="İsim" 
+                           BackgroundColor="#FFFFFF" TextColor="#333333"/>
+                    <Entry x:Name="phoneEntry" Placeholder="Telefon Numarası"  Keyboard="Telephone" 
+                           BackgroundColor="#FFFFFF" TextColor="#333333"/>
                 </VerticalStackLayout>
             </Frame>
-            <Button Text="Güncelle"
-                    TextColor="White"
-                    BackgroundColor="#007BFF"
-                    CornerRadius="10"
-                    Padding="10"
-                    FontSize="18"
+            <Button Text="Güncelle" TextColor="White" BackgroundColor="#007BFF" 
+                    CornerRadius="10" Padding="10" FontSize="18"
                     Clicked="OnUpdateButtonClicked"/>
         </VerticalStackLayout>
     </ContentPage.Content>
+    
 </ContentPage>

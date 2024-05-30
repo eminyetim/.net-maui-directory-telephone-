@@ -33,7 +33,7 @@ public partial class newPersonRegistration : ContentPage
         var newContact = new Contact
         {
             Name = name,
-            PhoneNumber = phoneNumber
+            PhoneNumber = phoneNumber   
         };
 
         await _contactDatabase.SaveContactAsync(newContact);
